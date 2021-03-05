@@ -43,25 +43,8 @@ disableDINint(addr, bit) = py"DAQC2.disableDINint"(addr, bit)
 clrDOUTbit(addr, bit) = py"DAQC2.clrDOUTbit"(addr, bit)
 toggleDOUTbit(addr, bit) = py"DAQC2.toggleDOUTbit"(addr, bit)
 
-""" getADC(addr, ch)
-    Dual read necessary on my system. Single read produces lagged value. 
-    Need to test if this is necessary in future versions
-"""
-function getADC(addr, ch)
-    py"DAQC2.getADC"(addr, ch)
-    sleep(0.1)
-    py"DAQC2.getADC"(addr, ch)
-end
-
-""" getDINbit(addr, ch)
-    Dual read necessary on my system. Single read produces lagged value. 
-    Need to test if this is necessary in future versions
-"""
-function getDINbit(addr, bit)
-    py"DAQC2.getDINbit"(addr, bit)
-    sleep(0.1)
-    py"DAQC2.getDINbit"(addr, bit)
-end
+getADC(addr, ch) = py"DAQC2.getADC"(addr, ch)
+getDINbit(addr, bit) =  py"DAQC2.getDINbit"(addr, bit)
 
 setDAC(addr, ch, value) = py"DAQC2.setDAC"(addr, ch, value)
 setDOUTbit(addr, bit) = py"DAQC2.setDOUTbit"(addr, bit)
